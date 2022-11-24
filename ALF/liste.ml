@@ -1,64 +1,38 @@
-let rec for_all p = function
-    [] -> true
-  | h::l -> (p h) && for_all p l
-;;
+let rec rnd_list n b =
+  if(n <= 0) then []
+  else (Random.int b) :: (rnd_list (n - 1) b);;
 
-for_all (fun x-> x mod 2 = 0) [4;2;8;];; 
-
-(* for_all è già inclusa su OCaml *) 
-List.for_all (fun x -> x mod 2 = 0) [4;2;8;];;
-
-let rec map p = function
+let rec rev l1 = match l1 with
     [] -> []
-  | h::l -> p h :: map p l
+  | hd :: tl -> (rev tl) @ [hd];;
+
+let lista = [1;2;3;4;5];;
+
+let rec string_of_listRec l = match l with
+    [] -> "]"
+  | hd1::[] -> (string_of_int hd1) ^ "]"
+  | hd::tl -> (string_of_int hd) ^ ";" ^ string_of_listRec tl
 ;;
 
-map (fun x -> x * 2) [2;4;6];;
+let string_of_list l =
+  "[" ^ (string_of_listRec l);;
 
-(* map è già inclusa su OCaml *)
-List.map (fun x -> x * 2) [2;4;6];;
-
-let rec filter p = function
-    [] -> []
-  | h::l -> if p h then h::(filter p l) else filter p l
-;;
-
-filter (fun x -> x mod 2 = 0) [1;2;3;4;5;6];;
-
-(* filter è già inclusa su OCaml *)
-List.filter (fun x -> x mod 2 = 0) [1;2;3;4;5;6];;
-
-let rec addlist = function
-    [] -> 0
-  | h::l -> h + addlist l
-;;
-
-addlist [1;2;3;4];;
-
-let rec fold_left f z = function
-    [] -> z
-  | h::l -> fold_left f (f z h) l
-;;
-
-fold_left (-) 0 [3;2];;
-
-let rec mem x = function
+let rec mem el l = match l with
     [] -> false
-  | y::l -> if x = y then true else mem x l
-;; 
+  | hd::tl -> if (hd = el) then true else (mem el tl)
+;;
 
-let maxL l = fold_left 
-    (fun r x -> match r with 
-         None -> Some x
-       | Some y -> if y > x then Some y else Some x)
-    None l;;
+let rec dup l = match l with
+    [] -> false
+  | hd::tl -> (mem hd tl) || (dup tl)
+;;
 
-maxL [1;4;5;3;7;2;4];;
+let rec mkset l = match l with
+    [] -> []
+  | hd::tl -> if (mem hd tl) then mkset tl else hd :: (mkset tl)
+;;
 
-let len l = fold_left (fun r x -> r + 1) 0 l;; 
-
-len [1;4;6;3;4];;
-
-let for_all2 p l = fold_left (fun r x -> r && p x) true l;;
-
-for_all2 (fun x-> x mod 2 = 0) [4;2;8;];; 
+let rec union l1 l2 = match l1 with
+    [] -> l2
+  | hd::tl -> if (mem hd l2) then union tl l2 else hd :: (union tl l2)
+;;
