@@ -24,7 +24,7 @@ struct pos{
 void proiettile(int pipeout, int y);
 void madre(int pipeout);
 void player(int pipeout);
-void controllo(int pipein);
+void controllo(int pipein, int pipeout);
 
 int main(){
 	
@@ -49,7 +49,7 @@ int main(){
 			perror("\nErrore nella creazione della fork Madre\n");
 			_exit(1);
 		case 0:
-			close(filedes[0]);
+			//close(filedes[0]);
 			madre(filedes[1]);   // Il primo processo figlio invoca la funzione della Madre
 		default:
 			pid_player = fork();
@@ -58,11 +58,11 @@ int main(){
 					perror("\nErrore nella creazione della fork Player\n");
 					_exit(1);
 				case 0:
-					close(filedes[0]);
+					//close(filedes[0]);
 					player(filedes[1]);	// Il primo processo figlio invoca la funzione del player
 				default:
-					close(filedes[1]);
-					controllo(filedes[0]);   // Il processo padre invoca la funzione di controllo
+					//close(filedes[1]);
+					controllo(filedes[0], filedes[1]);   // Il processo padre invoca la funzione di controllo
 			}
 	}
 	
@@ -101,7 +101,6 @@ void madre(int pipeout){
 	
 	struct pos pos_madre;
 	int dir = 1, yes = 1;
-	int pid_proiettile;
 	
 	pos_madre.c = '=';
 	pos_madre.x = 2;
@@ -114,18 +113,6 @@ void madre(int pipeout){
 		if(pos_madre.x + dir < 1 || pos_madre.x + dir > MAXX - 1){
 		    dir *= -1;        
 		}
-		
-		if(yes){
-			pid_proiettile = fork();
-			switch(pid_proiettile){
-				case -1:
-					perror("\nErrore nella creazione della fork Proiettile\n");
-					_exit(1);
-				case 0:
-					proiettile(pipeout, pos_madre.y);
-			}
-		}
-		yes = 0;
 		
 		pos_madre.x += dir;
 
@@ -164,13 +151,15 @@ void player(int pipeout){
 
 }
 
-void controllo(int pipein){
-	struct pos madre, player, proiettile, valore_letto;
+void controllo(int pipein, int pipeout){
+	struct pos madre, player, bullet, valore_letto;
 	int scudo = 3;
+	int go_bullet = 1;
+	int pid_proiettile;
 	
 	madre.x = -1;
 	player.x = -1;
-	proiettile.x = -1;
+	bullet.x = -1;
 	
 	do{
 		read(pipein, &valore_letto, sizeof(valore_letto));
@@ -186,16 +175,24 @@ void controllo(int pipein){
 			player = valore_letto;
 		}
 		else if(valore_letto.c == 'o'){
-			if(proiettile.x >= 0)
-				mvaddch(proiettile.y, proiettile.x, ' ');
-			proiettile = valore_letto;
+			if(bullet.x >= 0)
+				mvaddch(bullet.y, bullet.x, ' ');
+			bullet = valore_letto;
 		}
+		
+		if(go_bullet){
+			pid_proiettile = fork();
+			if(pid_proiettile == 0){
+				proiettile(pipeout, 2);
+			}
+		}
+		go_bullet = 0;
 		
 		// Visualizzo l'oggetto nella posizione aggiornata 
         	mvaddch(valore_letto.y, valore_letto.x, valore_letto.c);
         	
         	// Gestione scudo
-        	mvprintw(0, 1, "Scudo: %d", scudo);
+        	mvprintw(0, 0, "Scudo: %d", scudo);
         	
         	// Game Over
         	if(scudo == 0){
