@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <ncurses.h>
 #include <stdlib.h>
 #include <time.h>
@@ -16,13 +17,14 @@
 #define MAXY 24  //Numero di righe dello schermo
 
 struct pos{
+	char id[10];
 	char c;
 	int x;
 	int y;
-	int num;   // Serve ad indicare quale proiettile è
+	int num;
 };
 
-void proiettile(int pipeout, int x);
+void proiettile(int pipeout, int x, int num);
 void madre(int pipeout);
 void player(int pipeout);
 void controllo(int pipein, int pipeout);
@@ -78,14 +80,16 @@ int main(){
    	return 0;
 } 
 
-void proiettile(int pipeout, int x){
+void proiettile(int pipeout, int x, int conta){
 
 	struct pos pos_proiettile;
 	int dir = 1;
 	
+	strcpy(pos_proiettile.id, "bullet");
 	pos_proiettile.c = 'o';
 	pos_proiettile.x = x;
 	pos_proiettile.y = 2;
+	pos_proiettile.num = conta;
 	
 	write(pipeout, &pos_proiettile, sizeof(pos_proiettile));
 	
@@ -107,6 +111,7 @@ void madre(int pipeout){
 	struct pos pos_madre;
 	int dir = 1, yes = 1;
 	
+	strcpy(pos_madre.id, "madre");
 	pos_madre.c = '=';
 	pos_madre.x = 2;
 	pos_madre.y = 1;
@@ -132,6 +137,7 @@ void player(int pipeout){
 	struct pos pos_player;
 	int player_speed = 1, scudo = 3;
 	
+	strcpy(pos_player.id, "player");
 	pos_player.c = '^';
 	pos_player.x = MAXX / 2;
 	pos_player.y = MAXY - 1;
@@ -159,29 +165,26 @@ void player(int pipeout){
 void controllo(int pipein, int pipeout){
 	int scudo = 3, invincibile = 0;
 	int cicli = 0, i;   // i serve a contare i cicli
-	int num_proiettili = 5, pid_proiettile[num_proiettili], conta;
+	int pid_proiettile, num_proiettili = 5, conta_proiettile = 0;
 	struct pos madre, player, bullet[num_proiettili], valore_letto;
 	
 	madre.x = -1;
 	player.x = -1;
 	
-	for(i = 0; i < num_proiettili; i++)
-		bullet[i].x = -1;
-	
 	do{
 		read(pipein, &valore_letto, sizeof(valore_letto));
 		
-		if(valore_letto.c == '='){
+		if(!strcmp(valore_letto.id, "madre")){
 			if(madre.x >= 0)
 				mvaddch(madre.y, madre.x, ' ');
 			madre = valore_letto;
 		}
-		else if(valore_letto.c == '^'){
+		else if(!strcmp(valore_letto.id, "player")){
 			if(player.x >= 0)
 				mvaddch(player.y, player.x, ' ');
 			player = valore_letto;
 		}
-		else if(valore_letto.c == 'o'){
+		else if(!strcmp(valore_letto.id, "bullet")){
 			if(bullet[valore_letto.num].x >= 0)
 				mvaddch(bullet[valore_letto.num].y, bullet[valore_letto.num].x, ' ');
 			bullet[valore_letto.num] = valore_letto;
@@ -190,15 +193,15 @@ void controllo(int pipein, int pipeout){
 		cicli++;     // Contatore dei cicli
 		
 		// Ogni tot cicli spara un proiettile
-		if(!(cicli % 100)){
-			pid_proiettile[conta] = fork();
-			if(pid_proiettile[conta] == 0){
-				proiettile(pipeout, madre.x);
+		if(!(cicli % 50)){
+			pid_proiettile = fork();
+			if(pid_proiettile == 0){
+				proiettile(pipeout, madre.x, conta_proiettile);
 			}
 			
-			conta++;
-			if(conta == num_proiettili)
-				conta = 0;
+			conta_proiettile++;
+			if(conta_proiettile == num_proiettili)
+				conta_proiettile = 0;
 			
 		}
 		
@@ -210,11 +213,9 @@ void controllo(int pipein, int pipeout){
         	mvaddch(valore_letto.y, valore_letto.x, valore_letto.c);
         	
         	// Gestione scudo
-        	mvprintw(0, 0, "Scudo: %d", scudo);
-        	mvprintw(10, 10, "cicli: %d", cicli);
-        	mvprintw(11, 10, "inv: %d", invincibile);
+        	mvprintw(0, 1, "Scudo: %d", scudo);
         	
-        	if(!invincibile && (bullet[1].x == player.x && bullet[1].y == player.y)){
+        	if(!invincibile && !strcmp(valore_letto.id, "bullet") && (valore_letto.x == player.x && valore_letto.y == player.y)){
         		scudo--;
         		invincibile = 1;
         		flash();
@@ -228,29 +229,3 @@ void controllo(int pipein, int pipeout){
         	refresh();  
 	}while(1);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
