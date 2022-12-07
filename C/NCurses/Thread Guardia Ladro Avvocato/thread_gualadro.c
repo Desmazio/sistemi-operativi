@@ -23,9 +23,11 @@ struct pos{
     int y;
 };
 
-void* ladro(void* unused);
-void* guardia();
+void* ladro(void* params);
+void* guardia(void* params);
 void* avvocato();
+int areaGioco(void* data_guardia, void* data_ladro);
+void gameOver(int ris);
 
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 
@@ -34,28 +36,49 @@ int main(){
 	pthread_t thread_ladro;
 	pthread_t thread_avvocato;
 	pthread_t thread_guardia;
+	
+	struct pos data_ladro; 
+	data_ladro.c = '$';
+	data_ladro.x = 1;
+	data_ladro.y = 1;
+	struct pos data_avvocato; 
+	struct pos data_guardia; 
+	data_guardia.c = '#';
+	data_guardia.x = MAXX-1;
+	data_guardia.y = MAXY-1;
 
 	initscr();
 	noecho();
 	curs_set(0);
+	keypad(stdscr, 1);
+	cbreak();
 	srand((int)time(NULL));
+	
+	int risultato; // 0 = vittoria della guardia, 1 = vittoria del ladro
 
-	pthread_create(&thread_ladro, NULL, &ladro, NULL);
+	pthread_create(&thread_ladro, NULL, &ladro, &data_ladro);
+	pthread_create(&thread_guardia, NULL, &guardia, &data_guardia);
+	
+	risultato = areaGioco(&data_guardia, &data_ladro);
 
-	pthread_join(thread_ladro, NULL);
-
-	endwin();
+	//pthread_join(thread_ladro, NULL);
+	//pthread_join(thread_guardia, NULL);
+	
+	pthread_cancel(thread_ladro);
+	pthread_cancel(thread_guardia);
+	pthread_mutex_destroy(&mutex);
+	
+	gameOver(risultato);
+	
 	return 0;
 }
 
-void* ladro(void* unused){
-	struct pos pos_ladro;
+void* ladro(void* params){
+	struct pos* pos_ladro;
+	pos_ladro = (struct pos*) params;
+	
 	long int r;
      int dx, dy;
-	
-	pos_ladro.c = '$';
-	pos_ladro.x = 1;
-	pos_ladro.y = 1;
 	
 	while(1){
 		
@@ -67,11 +90,9 @@ void* ladro(void* unused){
 		  dx = -PASSO;        
 		}
 
-		if(pos_ladro.x + dx < 1 || pos_ladro.x + dx > MAXX){
+		if(pos_ladro->x + dx < 1 || pos_ladro->x + dx > MAXX){
 		  dx = -dx;        
 		}
-
-		//pos_ladro.x += dx;
 
 		r = random();
 		if(r < RAND_MAX/2){
@@ -80,28 +101,104 @@ void* ladro(void* unused){
 		  dy = -PASSO;    
 		}
 
-		if(pos_ladro.y + dy < 1 || pos_ladro.y + dy > MAXY){
+		if(pos_ladro->y + dy < 1 || pos_ladro->y + dy > MAXY){
 		  dy = -dy;        
 		}
-
-		//pos_ladro.y += dy;
 		
 		// Blocco del mutex per muovoere il ladro
 		pthread_mutex_lock(&mutex);
 		
 		// Cancello la sua ultima posizione
-		mvaddch(pos_ladro.y, pos_ladro.x, ' ');
+		mvaddch(pos_ladro->y, pos_ladro->x, ' ');
 		
 		// Assegno la nuova posizione e lo muovo
-		pos_ladro.x += dx;
-		pos_ladro.y += dy;
-		mvaddch(pos_ladro.y, pos_ladro.x, pos_ladro.c);
+		pos_ladro->x += dx;
+		pos_ladro->y += dy;
+		mvaddch(pos_ladro->y, pos_ladro->x, pos_ladro->c);
+		
+		//mvprintw(MAXY / 2 - 3, MAXX / 2, "Ladro x %d", pos_ladro->x);
+		//mvprintw(MAXY / 2 - 2, MAXX / 2, "Ladro y %d", pos_ladro->y);
+		
 		refresh();
 		
 		pthread_mutex_unlock(&mutex);
 
 		usleep(1000000);
     }
+}
+
+void* guardia(void* params){
+	struct pos* pos_guardia;
+	pos_guardia = (struct pos*) params; 
+	
+	int oldX, oldY;
+
+	while(1){
+		oldX = pos_guardia->x;
+		oldY = pos_guardia->y;
+		
+		switch(getch()){
+			case SU:
+				if(pos_guardia->y > 0){
+					pos_guardia->y -= 1;                
+				}
+				break;
+			case GIU:
+				if(pos_guardia->y < MAXY - 1){
+					pos_guardia->y += 1;                        
+				}    
+				break;
+			case SINISTRA:
+				if(pos_guardia->x > 0){
+					pos_guardia->x -= 1;
+				}
+				break;
+			case DESTRA:
+				if(pos_guardia->x < MAXX - 1){
+					pos_guardia->x += 1;                
+				}		
+				break;
+		}
+		
+		// Blocco del mutex , cancello vecchia posizione e stampo quella nuova
+		pthread_mutex_lock(&mutex);
+		
+		mvaddch(oldY, oldX, ' ');
+		mvaddch(pos_guardia->y, pos_guardia->x, pos_guardia->c);
+		
+		//mvprintw(MAXY / 2 - 5, MAXX / 2, "guardia x %d", pos_guardia->x);
+		//mvprintw(MAXY / 2 - 4, MAXX / 2, "guardia y %d", pos_guardia->y);
+		
+		refresh();
+		
+		pthread_mutex_unlock(&mutex);
+		
+	}
+}
+
+int areaGioco(void* data_guardia, void* data_ladro){
+	struct pos* guardia;
+	struct pos* ladro;
+	guardia = (struct pos*) data_guardia;
+	ladro = (struct pos*) data_ladro;
+
+	while(1){
+		if(guardia->x == ladro->x && guardia->y == ladro->y)
+			return 0;
+	}
+
+}
+
+void gameOver(int ris){
+	endwin();
+	printf("\n\n");
+
+	if(ris == 0){
+		printf("GAMER OVER");
+		printf("\nLa guardia ha catturato il ladro");
+	}
+	
+	printf("\n\n");
 }
 
 
