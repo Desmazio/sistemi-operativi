@@ -24,7 +24,8 @@ struct pos{
 
 void* player(void* params);
 void* madre(void* params);
-void areaGioco();
+void* bullet(void* params);
+void areaGioco(void* data_player, void* data_madre);
 
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 
@@ -52,6 +53,8 @@ int main(){
 	
 	pthread_create(&thread_player, NULL, &player, &data_player);
 	pthread_create(&thread_madre, NULL, &madre, &data_madre);
+	
+	areaGioco(&data_player, &data_madre);
 	
 	pthread_join(thread_player, NULL);
 	pthread_join(thread_im, NULL);
@@ -81,13 +84,9 @@ void* player(void* params){
 				break;
 		}
 		
-		// Blocco del mutex , cancello vecchia posizione e stampo quella nuova
 		pthread_mutex_lock(&mutex);
 		
-		mvaddch(oldY, oldX, ' ');
 		mvaddch(pos_player->y, pos_player->x, pos_player->c);
-		
-		refresh();
 		
 		pthread_mutex_unlock(&mutex);
 		
@@ -107,18 +106,84 @@ void* madre(void* params){
 		}
 
 		pthread_mutex_lock(&mutex);
-		
-		mvaddch(pos_madre->y, pos_madre->x, ' ');
+
 		pos_madre->x += dir;
-		mvaddch(pos_madre->y, pos_madre->x, pos_madre->c);
-		
-		refresh();
 		
 		pthread_mutex_unlock(&mutex);
 		
 		usleep(100000);
 	}
 }
+
+void* bullet(void* params){
+	struct pos* pos_bullet;
+	pos_bullet = (struct pos*) params;
+	pos_bullet->c = 'o';
+	pos_bullet->y = 2;
+	
+	while(pos_bullet->y < MAXY){
+		pthread_mutex_lock(&mutex);
+		
+		pos_bullet->y += 1;
+		
+		pthread_mutex_unlock(&mutex);
+		
+		usleep(100000);
+	}
+	
+	//pthread_cancel();
+	
+}
+
+void areaGioco(void* data_player, void* data_madre){
+	struct pos* player;
+	struct pos* madre;
+	player = (struct pos*) data_player;
+	madre = (struct pos*) data_madre;
+	
+	int bullet_num = 5, conta_bullet = 0, scudo = 3;
+	pthread_t thread_bullet;
+	struct pos data_bullet[bullet_num];
+	
+	int spara = 1, cicli = 0, i;
+	
+	while(1){
+	
+		cicli++;
+		if(!(cicli % 100)){
+			cicli = 0;
+		
+			data_bullet[conta_bullet].x = madre->x;
+			pthread_create(&thread_bullet, NULL, &bullet, &data_bullet[conta_bullet]);
+			conta_bullet++;
+			if(conta_bullet == bullet_num)
+				conta_bullet = 0;
+		}
+
+		// Stampa 
+		erase();
+		mvprintw(10, 10, "Cicli %d", cicli);
+		mvprintw(0, 1, "Scudo: %d", scudo);
+		
+		mvaddch(madre->y, madre->x, madre->c);
+		mvaddch(player->y, player->x, player->c);
+		for(i = 0; i < bullet_num; i++)
+			mvaddch(data_bullet[i].y, data_bullet[i].x, data_bullet[i].c);
+		
+		refresh();
+		usleep(10000);
+		
+	}
+	
+}
+
+
+
+
+
+
+
+
 
 
 
