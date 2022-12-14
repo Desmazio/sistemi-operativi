@@ -56,8 +56,8 @@ int main(){
 	
 	areaGioco(&data_player, &data_madre);
 	
-	pthread_join(thread_player, NULL);
-	pthread_join(thread_im, NULL);
+	endwin();
+	printf("\n\nGAME OVER\n\n\n");
 
 }
 
@@ -145,9 +145,9 @@ void areaGioco(void* data_player, void* data_madre){
 	pthread_t thread_bullet;
 	struct pos data_bullet[bullet_num];
 	
-	int spara = 1, cicli = 0, i;
+	int spara = 1, cicli = 0, i, game_over = 0;
 	
-	while(1){
+	while(!game_over){
 	
 		cicli++;
 		if(!(cicli % 100)){
@@ -160,9 +160,20 @@ void areaGioco(void* data_player, void* data_madre){
 				conta_bullet = 0;
 		}
 
+		// Controllo collisione player-bullet
+		for(i = 0; i < bullet_num; i++){
+			if(data_bullet[i].x == player->x && data_bullet[i].y == player->y){
+				flash();
+				scudo--;
+			}
+		}
+
+		// Controllo Game Over
+		if(scudo == 0)
+			game_over = 1;
+
 		// Stampa 
 		erase();
-		mvprintw(10, 10, "Cicli %d", cicli);
 		mvprintw(0, 1, "Scudo: %d", scudo);
 		
 		mvaddch(madre->y, madre->x, madre->c);
