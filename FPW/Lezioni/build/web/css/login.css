@@ -1,0 +1,72 @@
+@font-face{
+    font-family: roboto;
+    src: url(fonts/Roboto-Regular.ttf);
+}
+
+body{
+    background-color: #cff0fb;
+    font: 17px/25px Arial, Helvetica, sans-serif;
+}
+
+h2{
+    color: #ffffff;
+    font: 50px/40px Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+}
+
+header{
+    background_color: #0097e6;
+    text-align: center;
+}
+
+#intro{
+    text-align: center;
+    font-weight: bold;
+}
+
+main{
+    text-align: center;
+    font-weight: bold; 
+}
+
+a:link{
+    font-size: 20px;
+    text-decoration: none;
+    color: #0097e6;
+}
+
+a:visited{
+    color: #111111;
+}
+
+a:hover{
+    font-weight: bold;
+}
+
+#login{
+    text-align: center;
+    position: absolute;
+    background: #0097e6;
+    color: #ffffff;
+    top: 45%;
+    left: 50%;
+    padding: 20px;
+    margin: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    height: auto;
+}
+
+#login input{
+    display: block;
+    width: 66%;
+    margin-left: 16%;
+    margin-top: 2%;
+}
+
+#login input[type="submit"]{
+    width: 68%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

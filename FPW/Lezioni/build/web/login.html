@@ -2,33 +2,26 @@
 <html>
     <head>
         <title>Cineva</title>
-        <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="css/login.css" media="screen">
+        <meta charset="UTF-8">
     </head>
 
     <body>
-        <header>
-            <!-- Logo -->
-            <a href="index.html"><img src="img/logo.jpg" alt="Logo Cineva" height="150"></a> 
-            <!-- NavBar -->
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="chi_siamo.html">Chi siamo</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="nuova_recensione.html">Nuova recensione</a></li>
-                </ul>
-            </nav>
-            </header>
-            <main>
+        <main>
+            
+            
+            <form action="login" method="POST" id="login">
+                <a href="index.html"><img src="img/logo.jpg" alt="Logo Cineva" height="150"></a> 
                 <h2>Login</h2>
-                <form action="login" method="POST">
-                    <label for="username">Username</label>
-                    <input type="text" name="username" id="username">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" id="password">
-                    <input type="submit" value="Accedi">
-                </form>
-            </main>
+                
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+                <input type="submit" value="Accedi">
+            </form>
+            
+        </main>
+        
     </body>
 </html>
