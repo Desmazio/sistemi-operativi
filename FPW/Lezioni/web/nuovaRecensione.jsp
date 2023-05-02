@@ -1,3 +1,12 @@
+<%-- 
+    Document   : nuovaRecensione
+    Created on : 2 mag 2023, 16:12:12
+    Author     : mrobb
+--%>
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,7 +19,7 @@
         <main>
             
             <form id="nuovaRecensione" action="review" method="POST">
-                <a href="index.html"><img src="img/logo.jpg" alt="Logo Cineva" height="150"></a> 
+                <a href="index.jsp"><img src="img/logo.jpg" alt="Logo Cineva" height="150"></a> 
                 <h2>Nuova Recensione</h2>
                 
                 <label for="titolo">Titolo</label>
@@ -32,3 +41,4 @@
         </main>
     </body>
 </html>
+

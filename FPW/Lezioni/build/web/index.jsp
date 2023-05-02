@@ -1,3 +1,12 @@
+<%-- 
+    Document   : index
+    Created on : 2 mag 2023, 16:17:47
+    Author     : mrobb
+--%>
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,15 +18,15 @@
     <body>
         <header>
             <!-- Logo -->
-            <a href="index.html"><img src="img/logo.jpg" alt="Logo Cineva" height="150"></a> 
+            <a href="index.jsp"><img src="img/logo.jpg" alt="Logo Cineva" height="150"></a> 
             <!-- NavBar -->
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="login.html">Login</a></li>
+                    <li><a href="index.jsp">Home</a></li>
+                    <li><a href="login.jsp">Login</a></li>
                     <li><a href="chi_siamo.html">Chi siamo</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="nuova_recensione.html">Nuova recensione</a></li>
+                    <li><a href="about.jsp">About</a></li>
+                    <li><a href="nuovaRecensione.jsp">Nuova recensione</a></li>
                 </ul>
             </nav>
         </header>
@@ -29,3 +38,4 @@
         </main>
     </body>
 </html>
+

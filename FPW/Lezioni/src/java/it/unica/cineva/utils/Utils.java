@@ -1,4 +1,8 @@
 package it.unica.cineva.utils;
+
+import java.util.Calendar;
+import java.util.TimeZone;
+
 import it.unica.cineva.exceptions.InvalidParamException;
 
 /**
@@ -24,6 +28,16 @@ public class Utils {
         catch(NumberFormatException e){
             throw new InvalidParamException("Il valore " + param + " non rappresenta un valore intero");
         }
+    }
+    
+    public static String convertTime(long time){
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeZone(TimeZone.getTimeZone("UTC"));
+        cal.setTimeInMillis(time);
+        
+        return(cal.get(Calendar.DAY_OF_MONTH) + "/" + (cal.get(Calendar.MONTH)+1) + "/" +
+                cal.get(Calendar.YEAR) + " " + cal.get(Calendar.HOUR_OF_DAY)+ ":" + 
+                cal.get(Calendar.MINUTE) + ":" + cal.get(Calendar.SECOND));
     }
     
 }
