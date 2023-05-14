@@ -14,6 +14,8 @@
         <title>Recensione Inserita</title>
     </head>
     <body>
+        <%@include file="common/navbar.jspf" %>
+        
         <h1>Recensione inserita correttamente!</h1>
         <h2>Perché non dai un'occhiata a questi titoli del momento?</h2>
         <ul>

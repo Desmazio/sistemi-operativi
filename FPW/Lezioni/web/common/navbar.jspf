@@ -1,0 +1,15 @@
+<%-- 
+    Document   : navbar
+    Created on : 9 mag 2023, 09:16:03
+    Author     : mrobb
+--%>
+
+<nav>
+    <ul>
+        <li><a href="index.jsp">Home</a></li>
+        <li><a href="login.jsp">Login</a></li>
+        <li><a href="chi_siamo.html">Chi siamo</a></li>
+        <li><a href="about.jsp">About</a></li>
+        <li><a href="nuovaRecensione.jsp">Nuova recensione</a></li>
+    </ul>
+</nav>

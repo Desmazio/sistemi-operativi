@@ -20,15 +20,7 @@
             <!-- Logo -->
             <a href="index.jsp"><img src="img/logo.jpg" alt="Logo Cineva" height="150"></a> 
             <!-- NavBar -->
-            <nav class="sticky">
-                <ul>
-                    <li><a href="index.jsp">Home</a></li>
-                    <li><a href="login.jsp">Login</a></li>
-                    <li><a href="chi_siamo.html">Chi siamo</a></li>
-                    <li><a href="about.jsp">About</a></li>
-                    <li><a href="nuovaRecensione.jsp">Nuova recensione</a></li>
-                </ul>
-            </nav>
+            <%@include file="common/navbar.jspf" %>
         </header>
         <main>
             <h2>Cosa è Cineva?</h2>
