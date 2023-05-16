@@ -1,0 +1,65 @@
+/* 
+    Created on : 14 mag 2023, 22:45:12
+    Author     : paual
+*/
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    border: 3px solid black;
+    box-shadow: 0px 0px 10px black;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.login-title {
+    font-size: 30px;
+    margin-top: 35px;
+}
+
+label {
+    display: block;
+    margin-top: 25px;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="password"]{
+    font-size: 18px;
+    padding: 10px 5px;
+    margin-bottom: 10px;
+    border: 0px;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+input[type="text"]:focus::placeholder, input[type="password"]:focus::placeholder{
+    color: transparent;
+}
+
+input[type="submit"] {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border: 2px solid black;
+    box-shadow: 0px 0px 10px black;
+    font-size: 18px;
+    padding: 10px 50px;
+    margin-bottom: 35px;
+    margin-top: 35px;
+    border-radius: 25px;
+}
+
+input[type="submit"]:hover {
+    background-color: #F0940E;
+    color: black;
+    font-weight: bold;
+    box-shadow: inset 0px 0px 5px black;
+    box-shadow: 0px 0px 5px black;
+}

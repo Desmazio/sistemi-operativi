@@ -1,0 +1,76 @@
+/* 
+    Created on : 16 mag 2023, 18:02:08
+    Author     : paual
+*/
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    border: 3px solid black;
+    box-shadow: 0px 0px 10px black;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.headerAnnuncio {
+    font-size: 30px;
+    margin-top: 35px;
+}
+
+.riga{
+    display: flex;
+}
+
+.riga > div{
+    margin-left: 10px;
+}
+
+label {
+    margin-top: 25px;
+    font-size: 18px;
+    text-align: left;
+    font-weight: bold;
+}
+
+input[type="text"]{
+    font-size: 18px;
+    padding: 10px 5px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: left;
+}
+
+input[type="text"]:focus::placeholder{
+    color: transparent;
+}
+
+input[type="submit"] {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    border: 2px solid black;
+    box-shadow: 0px 0px 10px black;
+    font-size: 18px;
+    padding: 10px 50px;
+    margin-bottom: 35px;
+    margin-top: 35px;
+    border-radius: 25px;
+}
+
+input[type="submit"]:hover {
+    background-color: #F0940E;
+    color: black;
+    font-weight: bold;
+    box-shadow: inset 0px 0px 5px black;
+    box-shadow: 0px 0px 5px black;
+}
+
+textarea{
+    resize: none;
+}

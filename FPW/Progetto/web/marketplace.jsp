@@ -1,26 +1,25 @@
+<%-- 
+    Document   : marketplace
+    Created on : 14 mag 2023, 21:37:03
+    Author     : paual
+--%>
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <html>
     <head>
         <title>TopGear Marketplace</title>
+        <link rel="stylesheet" type="text/css" href="css/general.css" media="screen">
         <meta charset="UTF-8">
     </head>
     <body>
         <header>
-            <!-- Logo -->
-            <a href="index.html"><img src="img/Top-Gear-Logo.png" alt="Logo top Gear Marketplace" height="150"></a> 
+            <!-- INCLUDERE IL FILE JSPF DEL LOGO QUI -->
             
             <!-- NavBar -->
-            <nav>
-                <p>Pagine del sito</p>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="marketplace.html">Marketplace</a></li>
-                    <li><a href="annuncio.html">Pubblica un annuncio</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="chi_siamo.html">Chi Siamo</a></li>
-                </ul>
-            </nav>
+            <%@include file="common/navbar.jspf" %>
         </header>
         
         <main>
@@ -53,9 +52,9 @@
             
         </main>
         
-        <footer>
-            <small>©2023 BBC TopGear. Design by Desmazione </small>
-        </footer>
+        <!-- Footer -->
+        <%@include file="common/footer.jspf" %>
         
     </body>
 </html>
+
