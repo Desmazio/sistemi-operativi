@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import it.nuoro.progetto.exceptions.*;
+import it.nuoro.progetto.utils.*;
+
 /**
  *
  * @author mrobb
@@ -28,12 +31,36 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         
-        session.setAttribute("username", username);
-        session.setMaxInactiveInterval(30);
-        response.sendRedirect("AreaPersonale");
-        
+        try{
+            
+            Utils.checkString(username, 5, 20);
+            Utils.checkString(password, 5, 20);
+            
+            if(login(username, password)){
+                session.setAttribute("username", username);
+                session.setMaxInactiveInterval(30);
+                response.sendRedirect("AreaPersonale"); 
+            }
+            else{
+                throw new InvalidParamException("Username o password non validi!");
+            }
+        }catch(InvalidParamException e){
+            session.invalidate();
+            request.setAttribute("errorType", "login");
+            request.setAttribute("errorMessage", e.getMessage());
+            request.setAttribute("link", "login.jsp");
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
+             
     }
 
+    private boolean login(String username, String password){
+        return (username.equals("Pau") && password.equals("66103") ||
+                username.equals("Todde") && password.equals("matricolaTodde") ||
+                username.equals("Pisanu") && password.equals("matricolaPisanu") ||
+                username.equals("Simbola") && password.equals("matricolaSimbola"));
+    }
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

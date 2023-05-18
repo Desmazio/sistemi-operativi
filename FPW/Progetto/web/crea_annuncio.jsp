@@ -24,7 +24,7 @@
         </header>
         
         <main>
-            <form action="crea_annuncio" method="POST" id="creaAnnuncio">
+            <form action="AnnuncioServlet" method="POST" id="creaAnnuncio">
                 <h2 class="headerAnnuncio">Crea un annuncio</h2>
                 <div class="riga">
                     <div>
@@ -41,8 +41,8 @@
                 <div class="riga">
                     <div>
                         <label for="tipologia">Tipologia</label><br>
-                        <input type="radio" id="auto" name="tipo_annuncio" value="Auto"><label for="auto">Auto</label>
-                        <input type="radio" id="componente" name="tipo_annuncio" value="Componente"><label for="componente">Componente</label>
+                        <input type="radio" id="auto" name="tipologia" value="Auto"><label for="auto">Auto</label><br>
+                        <input type="radio" id="componente" name="tipologia" value="Componente"><label for="componente">Componente</label>
                     </div>
                     <div>
                         <label for="titolo" required>Telefono</label><br>

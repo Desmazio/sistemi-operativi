@@ -9,8 +9,8 @@ form {
     justify-content: center;
     flex-direction: column;
     padding: 20px;
-    background-color: #FFFFFF;
-    border-radius: 10px;
+    background-color: white;
+    border-radius: 25px;
     border: 3px solid black;
     box-shadow: 0px 0px 10px black;
     max-width: 1000px;
@@ -24,6 +24,7 @@ form {
 
 .riga{
     display: flex;
+    margin-bottom: 10px;
 }
 
 .riga > div{
@@ -69,6 +70,10 @@ input[type="submit"]:hover {
     font-weight: bold;
     box-shadow: inset 0px 0px 5px black;
     box-shadow: 0px 0px 5px black;
+}
+
+input[type='radio']{
+    border-radius: 50px;
 }
 
 textarea{

@@ -12,7 +12,7 @@
     <head>
         <title>TopGear Marketplace</title>
         <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="css/index2.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="css/index.css" media="screen">
         <meta charset="UTF-8">
     </head>
     <body>
