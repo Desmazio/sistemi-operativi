@@ -11,8 +11,8 @@
 <html>
     <head>
         <title>TopGear Marketplace</title>
-        <link rel="stylesheet" type="text/css" href="css/general.css" media="screen">
-        <link rel="stylesheet" type="text/css" href="css/index.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="css/index2.css" media="screen">
         <meta charset="UTF-8">
     </head>
     <body>
@@ -23,10 +23,15 @@
             <%@include file="common/navbar.jspf" %>
         </header>
         
-        <div class="col-4" id="sidebar">
+        <%-- <div class="col-4" id="sidebar">
             <h2>Sidebar</h2>
             <p>Qui possiamo aggiungere gli annunci postati, oppure una pubblicità finta</p>
-        </div>
+        </div> --%>
+        
+        <aside class="col-4">
+            <h2>Sidebar</h2>
+            <p>Qui possiamo aggiungere gli annunci postati, oppure una pubblicità finta</p>
+        </aside>
         
         <main class="col-7">
             <h2>Home</h2>

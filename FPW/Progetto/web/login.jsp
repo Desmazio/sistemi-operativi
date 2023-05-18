@@ -25,7 +25,7 @@
         
         <main>
             
-            <form action="login" method="POST" id="login">
+            <form action="LoginServlet" method="POST" id="login">
                 <h2 class="login-title">Login</h2>
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" placeholder="Enter Username" required>
