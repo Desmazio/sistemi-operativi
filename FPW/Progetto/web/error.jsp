@@ -20,10 +20,19 @@
         </header>
         
         
-            <form action="login.jsp">
-                <h2>Login Fallito</h2>
+            <form action=${link}>
+                <c:set var="str" value="login"/>
+                <c:choose>
+                    <c:when test="${errorType == str}">
+                        <h2>Login Fallito</h2>
+                    </c:when>
+                    <c:otherwise>
+                        <h2>Errore creazione annuncio</h2>
+                    </c:otherwise>
+                </c:choose>
+                
                 <p>${errorMessage}</p>
-                <input type="submit" value="Torna al login">
+                <input type="submit" value="Riprova">
             </form>
         
         

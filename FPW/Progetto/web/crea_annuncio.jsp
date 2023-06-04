@@ -46,7 +46,7 @@
                     </div>
                     <div>
                         <label for="titolo" required>Telefono</label><br>
-                        <input type="tel" name="telefono" id="telefono">
+                        <input type="tel" name="telefono" id="telefono" required>
                     </div>
                 </div>
                 

@@ -22,16 +22,8 @@
             <!-- NavBar -->
             <%@include file="common/navbar.jspf" %>
         </header>
-        
-        <%-- <div class="col-4" id="sidebar">
-            <h2>Sidebar</h2>
-            <p>Qui possiamo aggiungere gli annunci postati, oppure una pubblicità finta</p>
-        </div> --%>
-        
-        <aside class="col-4">
-            <h2>Sidebar</h2>
-            <p>Qui possiamo aggiungere gli annunci postati, oppure una pubblicità finta</p>
-        </aside>
+       
+        <%@include file="common/sidebar.jspf" %>
         
         <main class="col-7">
             <h2>Home</h2>

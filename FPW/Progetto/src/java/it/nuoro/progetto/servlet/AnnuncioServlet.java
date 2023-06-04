@@ -41,12 +41,14 @@ public class AnnuncioServlet extends HttpServlet {
             String prezzo = request.getParameter("prezzo");
             String descrizione = request.getParameter("descrizione");
             String tipologia = request.getParameter("tipologia");
+            String telefono = request.getParameter("telefono");
             
             try{
                 Utils.checkString(titolo, 5, 20);
                 Utils.checkInteger(prezzo, 0, 999999999);
                 Utils.checkString(descrizione, 20, 1000);
                 Utils.checkRadio(tipologia);
+                Utils.checkInteger(telefono, 0, 999999999);
                 
                 if(creaAnnuncio()){
                     response.sendRedirect(request.getContextPath() + "/annuncio_creato.jsp"); 
@@ -56,6 +58,8 @@ public class AnnuncioServlet extends HttpServlet {
             
             }catch(InvalidParamException e){
                 request.setAttribute("errorType", "annuncio");
+                request.setAttribute("errorMessage", e.getMessage());
+                request.setAttribute("link", "crea_annuncio.jsp");
                 request.getRequestDispatcher("error.jsp").forward(request, response);
             }
             

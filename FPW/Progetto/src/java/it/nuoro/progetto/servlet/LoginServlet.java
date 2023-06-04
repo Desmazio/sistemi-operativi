@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
         
         try{
             
-            Utils.checkString(username, 5, 20);
+            Utils.checkString(username, 3, 20);
             Utils.checkString(password, 5, 20);
             
             if(login(username, password)){
