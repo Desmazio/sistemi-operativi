@@ -92,8 +92,6 @@ nav li > a{
     color: #B6C5E4;
     margin-right: 5px;
     position: relative;
-    /*border-bottom: 2px solid white;*/
-    /*padding-bottom: 5px;*/
 }
 
 nav li > a:link{
@@ -104,6 +102,8 @@ nav li > a:link{
 nav li > a:hover{
     color: white;
     font-size: 21px;
+    border-bottom: 2px solid white; 
+    padding-bottom: 5px;
 }
 
 footer {
