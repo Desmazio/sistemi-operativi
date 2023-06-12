@@ -11,21 +11,30 @@
 <html>
     <head>
         <title>TopGear Marketplace</title>
-        <link rel="stylesheet" type="text/css" href="css/general.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="css/chi_siamo.css" media="screen">
         <meta charset="UTF-8">
     </head>
     <body>
-        <header>
-            <!-- INCLUDERE IL FILE JSPF DEL LOGO QUI -->
-            
-            <!-- NavBar -->
-            <%@include file="common/navbar.jspf" %>
-        </header>
+        <%@include file="common/header.jspf" %>
         
         <main>
-            <h2>Chi Siamo</h2>
-            <img src="img/us.png" height="600">
-            <p>Jeremy Clarkson (centro), Richard Hammond (sinistra), James May (destra)</p>
+            <article>
+                <img class="profilo" src="img/profile.jpg" alt="Immagine di profilo">
+                <p>ALESSANDRO PAU</p>
+            </article>
+            <article>
+                <img class="profilo" src="img/profile.jpg" alt="Immagine di profilo">
+                <p>ALESSANDRO TODDE</p>
+            </article>
+            <article>
+                <img class="profilo" src="img/profile.jpg" alt="Immagine di profilo">
+                <p>MARCO PISANU</p>
+            </article>
+            <article>
+                <img class="profilo" src="img/profile.jpg" alt="Immagine di profilo">
+                <p>FRANCESCO SIMBOLA</p>
+            </article>
         </main>
         
         <!-- Footer -->

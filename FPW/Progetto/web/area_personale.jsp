@@ -14,14 +14,9 @@
         <title>Area Personale</title>
     </head>
     <body>
-        <header>
-            <!-- INCLUDERE IL FILE JSPF DEL LOGO QUI -->
-            
-            <!-- NavBar -->
-            <%@include file="common/navbar.jspf" %>
-        </header>
+        <%@include file="common/header.jspf" %>
                 
-            <%@include file="common/sidebar.jspf" %>
+        <%@include file="common/sidebar.jspf" %>
         
         <main class="col-7">
             <c:if test="${empty username}">

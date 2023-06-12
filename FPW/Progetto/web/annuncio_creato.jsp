@@ -9,13 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/general.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
         <title>JSP Page</title>
     </head>
     <body>
-        <header>
-            <%@include file="common/navbar.jspf" %>
-        </header>
+        <%@include file="common/header.jspf" %>
         
         <h2>Annuncio creato, per ora questa pagina non fa nulla</h2>
         

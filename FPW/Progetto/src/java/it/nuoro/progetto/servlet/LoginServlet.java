@@ -31,6 +31,7 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         
+        //qua inizia il login
         try{
             
             Utils.checkString(username, 3, 20);
@@ -56,7 +57,7 @@ public class LoginServlet extends HttpServlet {
 
     private boolean login(String username, String password){
         return (username.equals("Pau") && password.equals("66103") ||
-                username.equals("Todde") && password.equals("matricolaTodde") ||
+                username.equals("Todde") && password.equals("66223") ||
                 username.equals("Pisanu") && password.equals("matricolaPisanu") ||
                 username.equals("Simbola") && password.equals("matricolaSimbola"));
     }

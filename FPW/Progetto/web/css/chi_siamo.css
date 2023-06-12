@@ -1,0 +1,29 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 11 giu 2023, 16:15:53
+    Author     : paual
+*/
+
+main{
+    text-align: center;
+    justify-content: center;
+}
+
+img.profilo{
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px grey;
+}
+
+article{
+    text-align: center;
+    display: inline-block;
+    padding: 50px 50px;
+}
+
+p{
+    font-size: 110%;
+    letter-spacing: 1px;
+}

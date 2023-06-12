@@ -10,17 +10,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/general.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
         <link rel="stylesheet" type="text/css" href="css/error.css" media="screen">
         <title>Error</title>
     </head>
     <body>
-        <header>
-            <%@include file="common/navbar.jspf" %>
-        </header>
+        <%@include file="common/header.jspf" %>
         
         
-            <form action=${link}>
+            <form action=${link} >
                 <c:set var="str" value="login"/>
                 <c:choose>
                     <c:when test="${errorType == str}">

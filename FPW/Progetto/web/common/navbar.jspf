@@ -2,10 +2,10 @@
 <%@ page pageEncoding="UTF-8" %>
 <nav>
     <ul>
-        <li><a href="index.jsp">Home</a></li>
-        <li><a href="login.jsp">Login</a></li>
-        <li><a href="marketplace.jsp">Marketplace</a></li>
-        <li><a href="crea_annuncio.jsp">Pubblica un annuncio</a></li>
-        <li><a href="chi_siamo.jsp">Chi Siamo</a></li>
+        <li><a href="index.jsp">HOME</a></li>
+        <li><a href="login.jsp">LOGIN</a></li>
+        <li><a href="marketplace.jsp">MARKETPLACE</a></li>
+        <li><a href="crea_annuncio.jsp">PUBBLICA UN ANNUNCIO</a></li>
+        <li><a href="chi_siamo.jsp">CHI SIAMO</a></li>
     </ul>
 </nav>

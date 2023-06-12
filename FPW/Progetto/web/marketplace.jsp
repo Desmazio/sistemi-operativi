@@ -11,18 +11,17 @@
 <html>
     <head>
         <title>TopGear Marketplace</title>
-        <link rel="stylesheet" type="text/css" href="css/general.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
         <meta charset="UTF-8">
     </head>
     <body>
-        <header>
-            <!-- INCLUDERE IL FILE JSPF DEL LOGO QUI -->
-            
-            <!-- NavBar -->
-            <%@include file="common/navbar.jspf" %>
-        </header>
+        <%@include file="common/header.jspf" %>
         
         <main>
+            <c:if test="${empty username}">
+                <c:redirect url="login.jsp"/>
+            </c:if>
+            
             <h2>Marketplace</h2>
             
             <hr>
@@ -49,7 +48,6 @@
                <p>Descrizione: Peugeot 206 del 2006, 205000km.</p>
                <p>Telefono: 3354678754</p>
             </div>
-            
         </main>
         
         <!-- Footer -->

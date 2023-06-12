@@ -11,19 +11,18 @@
 <html>
     <head>
         <title>TopGear Marketplace</title>
-        <link rel="stylesheet" type="text/css" href="css/general.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
         <link rel="stylesheet" type="text/css" href="css/crea_annuncio.css" media="screen">
         <meta charset="UTF-8">
     </head>
     <body>
-        <header>
-            <!-- INCLUDERE IL FILE JSPF DEL LOGO QUI -->
-            
-            <!-- NavBar -->
-            <%@include file="common/navbar.jspf" %>
-        </header>
+        <%@include file="common/header.jspf" %>
         
         <main>
+            <c:if test="${empty username}">
+                <c:redirect url="login.jsp"/>
+            </c:if>
+            
             <form action="AnnuncioServlet" method="POST" id="creaAnnuncio">
                 <h2 class="headerAnnuncio">Crea un annuncio</h2>
                 <div class="riga">
@@ -45,12 +44,12 @@
                         <input type="radio" id="componente" name="tipologia" value="Componente"><label for="componente">Componente</label>
                     </div>
                     <div>
-                        <label for="titolo" required>Telefono</label><br>
+                        <label for="titolo">Telefono</label><br>
                         <input type="tel" name="telefono" id="telefono" required>
                     </div>
                 </div>
                 
-                <input type="submit" value="Invia">	
+                <input type="submit" value="INVIA">	
             </form>
         </main>
         
