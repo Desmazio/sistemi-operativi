@@ -30,7 +30,7 @@
                 </c:choose>
                 
                 <p>${errorMessage}</p>
-                <input type="submit" value="Riprova">
+                <input type="submit" value="RIPROVA">
             </form>
         
         

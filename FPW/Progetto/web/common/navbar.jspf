@@ -4,6 +4,7 @@
     <ul>
         <li><a href="index.jsp">HOME</a></li>
         <li><a href="login.jsp">LOGIN</a></li>
+        <li><a href="registrati.jsp">REGISTRATI</a></li>
         <li><a href="marketplace.jsp">MARKETPLACE</a></li>
         <li><a href="crea_annuncio.jsp">PUBBLICA UN ANNUNCIO</a></li>
         <li><a href="chi_siamo.jsp">CHI SIAMO</a></li>

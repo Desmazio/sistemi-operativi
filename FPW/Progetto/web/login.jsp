@@ -19,6 +19,7 @@
         <%@include file="common/header.jspf" %>
         
         <main>
+            <!-- se il parametro "username" è vuoto, nessuno è loggato e fa fare il login, altrimenti fa fare il logout -->
             <c:if test="${empty username}">
                 <form action="LoginServlet" method="POST" id="login">
                     <h2 class="login-title">Login</h2>

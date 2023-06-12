@@ -31,7 +31,6 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         
-        //qua inizia il login
         try{
             
             Utils.checkString(username, 3, 20);
