@@ -9,10 +9,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Autoshop Marketplace</title>
+        <link rel="icon" href="img/logo_piccolo.png" type="image/x-icon">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
         <link rel="stylesheet" type="text/css" href="css/error.css" media="screen">
-        <title>Error</title>
     </head>
     <body>
         <%@include file="common/header.jspf" %>

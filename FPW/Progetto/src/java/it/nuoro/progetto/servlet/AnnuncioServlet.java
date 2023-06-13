@@ -48,7 +48,7 @@ public class AnnuncioServlet extends HttpServlet {
                 Utils.checkInteger(prezzo, 0, 999999999);
                 Utils.checkString(descrizione, 20, 1000);
                 Utils.checkRadio(tipologia);
-                Utils.checkInteger(telefono, 0, 999999999);
+                Utils.checkTelephoneNumber(telefono);
                 
                 if(creaAnnuncio()){
                     response.sendRedirect(request.getContextPath() + "/annuncio_creato.jsp"); 

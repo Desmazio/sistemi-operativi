@@ -10,9 +10,11 @@
 
 <html>
     <head>
-        <title>TopGear Marketplace</title>
+        <title>Autoshop Marketplace</title>
+        <link rel="icon" href="img/logo_piccolo.png" type="image/x-icon">
         <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
         <link rel="stylesheet" type="text/css" href="css/login.css" media="screen">
+        <script src="js/registrati.js" type="module"></script>
         <meta charset="UTF-8">
     </head>
     <body>
@@ -25,15 +27,16 @@
                     <form action="RegistrazioneServlet" method="POST" id="registrazione">
                         <h2 class="login-title">Registrati</h2>
                         <label for="username">Username</label>
-                        <input type="text" id="username" name="username" placeholder="Enter Username" required>
+                        <input type="text" id="username" name="username" placeholder="Enter Username">
                         <label for="password">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Enter email" required>
+                        <input type="email" id="email" name="email" placeholder="Enter email">
                         <label for="password">Password</label>
-                        <input type="password" id="password" name="password" placeholder="Enter Password" required>
+                        <input type="password" id="password" name="password" placeholder="Enter Password">
                         <label for="password">Telefono</label>
-                        <input type="tel" id="telefono" name="telefono" placeholder="Enter telephone" required>
-
-                        <input type="submit" value="REGISTRATI">
+                        <input type="tel" id="telefono" name="telefono" placeholder="Enter telephone">
+                        <button type="button" id="pulsante">REGISTRATI</button>
+                        
+                        <p id="messaggioErrore"></p>
                     </form>
                 </c:when>
                 <c:otherwise>

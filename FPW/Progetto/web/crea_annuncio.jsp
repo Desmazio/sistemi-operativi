@@ -10,9 +10,11 @@
 
 <html>
     <head>
-        <title>TopGear Marketplace</title>
+        <title>Autoshop Marketplace</title>
+        <link rel="icon" href="img/logo_piccolo.png" type="image/x-icon">
         <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
         <link rel="stylesheet" type="text/css" href="css/crea_annuncio.css" media="screen">
+        <script src="js/crea_annuncio.js" type="module"></script>
         <meta charset="UTF-8">
     </head>
     <body>
@@ -28,15 +30,15 @@
                 <div class="riga">
                     <div>
                         <label for="titolo">Titolo</label><br>
-                        <input type="text" name="titolo" id="titolo" placeholder="Titolo dell'annuncio" required>
+                        <input type="text" name="titolo" id="titolo" placeholder="Titolo dell'annuncio">
                     </div>
                     <div>
-                        <label for="titolo">Prezzo</label><br>
-                        <input type="text" name="prezzo" id="prezzo" required>
+                        <label for="prezzo">Prezzo</label><br>
+                        <input type="text" name="prezzo" id="prezzo">
                     </div>
                 </div>
                     <label for="descrizione">Descrizione</label>
-                    <textarea rows="5" cols="20" name="descrizione" id="descrizione" placeholder="Descrizione dell'annuncio" required></textarea>
+                    <textarea rows="5" cols="20" name="descrizione" id="descrizione" placeholder="Descrizione dell'annuncio"></textarea>
                 <div class="riga">
                     <div>
                         <label for="tipologia">Tipologia</label><br>
@@ -44,12 +46,14 @@
                         <input type="radio" id="componente" name="tipologia" value="Componente"><label for="componente">Componente</label>
                     </div>
                     <div>
-                        <label for="titolo">Telefono</label><br>
-                        <input type="tel" name="telefono" id="telefono" required>
+                        <label for="telefono">Telefono</label><br>
+                        <input type="tel" name="telefono" id="telefono">
                     </div>
                 </div>
                 
-                <input type="submit" value="INVIA">	
+                <button type="button" id="pulsante">INVIA</button>
+                
+                <p id="messaggioErrore"></p>
             </form>
         </main>
         

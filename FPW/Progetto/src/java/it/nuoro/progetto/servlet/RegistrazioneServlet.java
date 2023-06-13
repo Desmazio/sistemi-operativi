@@ -38,6 +38,7 @@ public class RegistrazioneServlet extends HttpServlet {
             Utils.checkString(username, 3, 20);
             Utils.checkString(password, 5, 20);
             Utils.checkString(email, 3, 50);
+            Utils.checkTelephoneNumber(telefono);
             
             session.setAttribute("username", username);
             session.setMaxInactiveInterval(30);

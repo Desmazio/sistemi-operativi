@@ -10,7 +10,8 @@
 
 <html>
     <head>
-        <title>TopGear Marketplace</title>
+        <title>Autoshop Marketplace</title>
+        <link rel="icon" href="img/logo_piccolo.png" type="image/x-icon">
         <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
         <link rel="stylesheet" type="text/css" href="css/chi_siamo.css" media="screen">
         <meta charset="UTF-8">

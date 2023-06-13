@@ -11,6 +11,7 @@
 <html>
     <head>
         <title>Autoshop Marketplace</title>
+        <link rel="icon" href="img/logo_piccolo.png" type="image/x-icon">
         <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
         <link rel="stylesheet" type="text/css" href="css/index.css" media="screen">
         <meta charset="UTF-8">
