@@ -1,9 +1,17 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
+<script src="js/dimensioneTesto.js"></script>
 <header>
     <!-- Logo -->
     <%@include file="logo.jspf" %>
 
     <!-- NavBar -->
     <%@include file="navbar.jspf" %>
+    
+    <div id="uiDimensione">
+        <button type="button" id="diminuisci">-</button>
+        <p id="lettera">A</p>
+        <button type="button" id="aumenta">+</button>
+    </div>
+    
 </header>

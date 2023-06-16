@@ -34,7 +34,7 @@
                         <input type="password" id="password" name="password" placeholder="Enter Password">
                         <label for="password">Telefono</label>
                         <input type="tel" id="telefono" name="telefono" placeholder="Enter telephone">
-                        <button type="button" id="pulsante">REGISTRATI</button>
+                        <button type="button" id="pulsante" class="pulsante">REGISTRATI</button>
                         
                         <p id="messaggioErrore"></p>
                     </form>

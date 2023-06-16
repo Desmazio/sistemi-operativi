@@ -11,7 +11,7 @@ window.onload = function(){
     var username = document.getElementById('username');
     var password = document.getElementById('password');
     var invia = document.getElementById('pulsante');
-    
+ 
     invia.onclick = function(){
         messaggioErrore.style.display = "none";
         var errore = "";

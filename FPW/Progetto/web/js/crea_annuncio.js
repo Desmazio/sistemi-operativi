@@ -12,7 +12,7 @@ window.onload = function(){
     var prezzo = document.getElementById('prezzo');
     var descrizione = document.getElementById('descrizione');
     var telefono = document.getElementById('telefono');
-    var radio1 = document.getElementById('auto');
+    var radio1 = document.getElementById('veicolo');
     var radio2 = document.getElementById('componente');
     var invia = document.getElementById('pulsante');
     
@@ -23,9 +23,9 @@ window.onload = function(){
             errore = "La lunghezza del titolo dev'essere compresa tra i 3 e i 20 caratteri";
         if(utils.controllaIntero(prezzo.value, 1, 999999999))
             errore = "Il prezzo dev'essere maggiore di 0 e minore di 999999999";
-        if(utils.controllaStringa(descrizione.value, 20, 1000))
+        if(utils.controllaStringa(descrizione.value, 20, 800))
             errore = "La lunghezza della descrizione dev'essere compresa tra i 20 e i 1000 caratteri";
-        if(utils.controllaStringa(telefono.value, 1, 20) || utils.controllaTelefono(telefono.value))
+        if(utils.controllaStringa(telefono.value, 7, 15) || utils.controllaTelefono(telefono.value))
             errore = "Inserire un numero di telefono corretto";
         if(!radio1.checked && !radio2.checked)
             errore = "Scegliere la tipologia di prodotto";

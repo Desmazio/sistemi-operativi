@@ -2,11 +2,11 @@
 <%@ page pageEncoding="UTF-8" %>
 <nav>
     <ul>
-        <li><a href="index.jsp" id="index">HOME</a></li>
-        <li><a href="login.jsp" id="login">LOGIN</a></li>
-        <li><a href="registrati.jsp" id="registrati">REGISTRATI</a></li>
-        <li><a href="marketplace.jsp" id="marketplace">MARKETPLACE</a></li>
-        <li><a href="crea_annuncio.jsp" id="crea_annuncio">PUBBLICA UN ANNUNCIO</a></li>
-        <li><a href="chi_siamo.jsp" id="chi_siamo">CHI SIAMO</a></li>
+        <li><a href="index.jsp">HOME</a></li>
+        <li><a href="login.jsp">LOGIN</a></li>
+        <li><a href="registrati.jsp">REGISTRATI</a></li>
+        <li><a href="marketplace.jsp">MARKETPLACE</a></li>
+        <li><a href="crea_annuncio.jsp">PUBBLICA UN ANNUNCIO</a></li>
+        <li><a href="chi_siamo.jsp">CHI SIAMO</a></li>
     </ul>
 </nav>

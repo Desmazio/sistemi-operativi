@@ -50,7 +50,7 @@ input[type="text"]:focus::placeholder{
     color: transparent;
 }
 
-button {
+.pulsante {
     background-color: black;
     color: white;
     cursor: pointer;
@@ -63,7 +63,7 @@ button {
     border-radius: 25px;
 }
 
-button:hover {
+.pulsante:hover {
     background-color: #083795;
     box-shadow: inset 0px 0px 5px grey;
     box-shadow: 0px 0px 5px grey;

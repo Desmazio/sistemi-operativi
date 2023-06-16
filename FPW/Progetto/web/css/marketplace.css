@@ -1,0 +1,73 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 14 giu 2023, 22:39:48
+    Author     : paual
+*/
+
+.annuncio{
+    border-radius: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+    position: relative;
+    display: flex;
+}
+
+.annuncio > *{
+    display: inline-block;
+}
+
+.infobox{
+    margin: 10px 10px 10px 10px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.immagine{
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+}
+
+.titoloAnnuncio{
+    color: #3c4858;
+    font-weight: 500;
+    
+}
+
+.prezzo{
+    color: #f9423a;
+    font-weight: 600;
+}
+
+.infobox > p{
+    margin: 0 0;
+}
+
+.telefono{
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    color: #f9423a;
+    font-weight: 600;
+}
+
+.icona{
+    height: 1em;
+    width: 1em;
+    margin-right: 4px;
+}
+
+.tipologia{
+    font-style: italic;
+    font-weight: 200;
+    color: #3c4858;
+}
+
+.descrizione{
+    margin-bottom: 5px;
+}

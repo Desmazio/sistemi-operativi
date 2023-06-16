@@ -22,19 +22,28 @@
         
         <main>
             <!-- se il parametro "username" è vuoto, nessuno è loggato e fa fare il login, altrimenti fa fare il logout -->
-            <c:if test="${empty username}">
-                <form method="POST" id="login" action="LoginServlet"> <!-- action="LoginServlet" -->
-                    
-                    <h2 class="login-title">Login</h2>
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" placeholder="Enter Username">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Enter Password">
-                    <button type="button" id="pulsante">ACCEDI</button>
-                    
-                    <p id="messaggioErrore"></p>
-                </form>
-            </c:if>
+            <c:choose>
+                <c:when test="${empty username}">
+                    <form method="POST" id="login" action="LoginServlet"> <!-- action="LoginServlet" -->
+
+                        <h2 class="login-title">Login</h2>
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="Enter Username">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter Password">
+                        <button type="button" id="pulsante" class="pulsante">ACCEDI</button>
+
+                        <p id="messaggioErrore"></p>
+                    </form>
+                </c:when>
+                <c:otherwise>
+                    <form method="POST" id="logout" action="LogoutServlet">
+                        <h2 class="login-title">Logout</h2>
+                        <p>Premi se vuoi fare il logout</p>
+                        <button type="submit" class="pulsante">LOGOUT</button>
+                    </form>
+                </c:otherwise>
+            </c:choose>
     
         </main>
         

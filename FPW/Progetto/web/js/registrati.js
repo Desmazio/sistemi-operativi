@@ -25,7 +25,7 @@ window.onload = function(){
             errore = "La lunghezza della email dev'essere compresa tra i 5 e i 50 caratteri";
         if(utils.controllaEmail(email.value)) // Per controllare la correttezza dell'email
             errore = "L'email deve contenere una @";
-        if(utils.controllaStringa(telefono.value, 1, 20) || utils.controllaTelefono(telefono.value))
+        if(utils.controllaStringa(telefono.value, 7, 15) || utils.controllaTelefono(telefono.value))
             errore = "Inserire un numero di telefono corretto";
         
         if(errore !== ""){

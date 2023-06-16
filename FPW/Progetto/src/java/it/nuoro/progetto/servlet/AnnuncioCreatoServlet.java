@@ -15,10 +15,10 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author mrobb
+ * @author paual
  */
-@WebServlet(name = "AreaPersonale", urlPatterns = {"/AreaPersonale"})
-public class AreaPersonale extends HttpServlet {
+@WebServlet(name = "AnnuncioCreatoServlet", urlPatterns = {"/AnnuncioCreatoServlet"})
+public class AnnuncioCreatoServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -27,7 +27,7 @@ public class AreaPersonale extends HttpServlet {
         HttpSession session = request.getSession(false);
         
         if(session != null && session.getAttribute("username") != null)
-            response.sendRedirect("area_personale.jsp");
+            response.sendRedirect("marketplace.jsp");
         else
             response.sendRedirect("login.jsp");
         

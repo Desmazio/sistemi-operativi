@@ -42,7 +42,7 @@
                 <div class="riga">
                     <div>
                         <label for="tipologia">Tipologia</label><br>
-                        <input type="radio" id="auto" name="tipologia" value="Auto"><label for="auto">Auto</label><br>
+                        <input type="radio" id="veicolo" name="tipologia" value="veicolo"><label for="veicolo">Veicolo</label><br>
                         <input type="radio" id="componente" name="tipologia" value="Componente"><label for="componente">Componente</label>
                     </div>
                     <div>
@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 
-                <button type="button" id="pulsante">INVIA</button>
+                <button type="button" id="pulsante" class="pulsante">INVIA</button>
                 
                 <p id="messaggioErrore"></p>
             </form>

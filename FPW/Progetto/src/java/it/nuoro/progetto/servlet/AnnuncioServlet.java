@@ -46,7 +46,7 @@ public class AnnuncioServlet extends HttpServlet {
             try{
                 Utils.checkString(titolo, 5, 20);
                 Utils.checkInteger(prezzo, 0, 999999999);
-                Utils.checkString(descrizione, 20, 1000);
+                Utils.checkString(descrizione, 20, 800);
                 Utils.checkRadio(tipologia);
                 Utils.checkTelephoneNumber(telefono);
                 
