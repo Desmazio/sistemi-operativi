@@ -13,12 +13,9 @@
         <link rel="icon" href="img/logo_piccolo.png" type="image/x-icon">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
-        <title>Area Personale</title>
     </head>
     <body>
         <%@include file="common/header.jspf" %>
-                
-        <%@include file="common/sidebar.jspf" %>
         
         <main class="col-7">
             <c:if test="${empty username}">
@@ -30,6 +27,11 @@
                 <p>Qui possiamo mettere gli annunci pubblicati da questo utente o qualche suo dato come email e numero di telefono</p>
             </c:if>
         </main>
+        
+        <%@include file="common/sidebar.jspf" %>
+        
+        <!-- Footer -->
+        <%@include file="common/footer.jspf" %>
         
     </body>
 </html>

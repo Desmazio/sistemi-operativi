@@ -18,13 +18,13 @@
     </head>
     <body>
         <%@include file="common/header.jspf" %>
-       
-        <%@include file="common/sidebar.jspf" %>
         
         <main class="col-7">
             <h2>Home</h2>
             <p>Benvenuto nel marketplace di Autoshop, qui puoi trovare auto usate, componenti, strumenti o pubblicare il tuo annuncio</p>
         </main>
+        
+        <%@include file="common/sidebar.jspf" %>
         
         <!-- Footer -->
         <%@include file="common/footer.jspf" %>

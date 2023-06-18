@@ -19,8 +19,6 @@
     <body>
         <%@include file="common/header.jspf" %>
         
-        <%@include file="common/sidebar.jspf" %>
-        
         <main class="col-7">
             <c:if test="${empty username}">
                 <c:redirect url="login.jsp"/>
@@ -77,7 +75,7 @@ Prezzo non trattabile no permute</p>
             <aside class="annuncio">
                 <img src="img/clio.png" alt="Immagine annuncio" class="immagine">
                 <div class="infobox">
-                    <p class="titoloAnnuncio">RENAULTClio2ª SeriePERFETTE CONDIZIONI</p>
+                    <p class="titoloAnnuncio">RENAULTClio2ª Serie</p>
                     <p class="prezzo">2000€</p>
                     <p class="tipologia">Veicolo</p>
                     <p class="descrizione">VENDO LA MIA AUTO PUR ESSENDO MOLTO AFFEZIONATO, PERCHE' HO NECESSITA' DI UN' AUTO PER PERCORSI DA FUORISTRADA. L'AUTO E' STATA SEMPRE PARCHEGGIATA IN GARAGE,
@@ -86,6 +84,8 @@ ALLESTIMENTO FULL OPTIONAL DINAMIQUE (ERA LA PIÙ COSTOSA), ANTIFURTO, NON FUMAT
                 </div>
             </aside>
         </main>
+        
+        <%@include file="common/sidebar.jspf" %>
         
         <!-- Footer -->
         <%@include file="common/footer.jspf" %>
