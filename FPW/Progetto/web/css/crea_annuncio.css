@@ -46,6 +46,12 @@ input[type="text"]{
     text-align: left;
 }
 
+.contaCaratteri{
+    display: inline;
+    margin-left: 10px;
+    color: #3c4858;
+}
+
 input[type="text"]:focus::placeholder{
     color: transparent;
 }

@@ -140,6 +140,7 @@ footer {
     text-align: left;
     position: relative;
     display: flex;
+    margin-bottom: 10px;
 }
 
 #sideAccount > img{
@@ -171,12 +172,58 @@ footer {
     font-style: italic;
 }
 
-#sideLink{
+.sideLink{
     text-decoration: none;
 }
 
-#sideLink:visited{
+.sideLink:visited{
     text-decoration: none;
+}
+
+.sideAnnuncio{
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #E7E8EA;
+    width: 100%;
+    text-align: left;
+    position: relative;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.sideAnnuncio > img{
+    height: 10em;
+    width: 10em;
+    object-fit: cover;
+}
+
+.sideAnnuncioBox{
+    margin-left: 5px;
+    position: relative;
+    width: 100%;
+}
+
+.sideAnnuncioBox > p{
+    margin-top: 2px;
+    margin-bottom: 0;
+}
+
+.sideTitolo{
+    color: #3c4858;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.sideTipologia{
+    color: #3c4858;
+    bottom: 0;
+    position: absolute;
+    font-style: italic;
+}
+
+.sidePrezzo{
+    color: #f9423a;
+    font-weight: 600;
 }
 
 @media only screen and (max-width: 600px){

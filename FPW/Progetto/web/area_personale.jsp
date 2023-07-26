@@ -13,6 +13,7 @@
         <link rel="icon" href="img/logo_piccolo.png" type="image/x-icon">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="css/area_personale.css" media="screen">
     </head>
     <body>
         <%@include file="common/header.jspf" %>
@@ -24,7 +25,10 @@
 
             <c:if test="${not empty username}">
                 <h1>Ciao ${username}!</h1>
-                <p>Qui possiamo mettere gli annunci pubblicati da questo utente o qualche suo dato come email e numero di telefono</p>
+                <div id="infobox">
+                    <p><img class="icona" src="img/email_icon.png" alt="Icona Email">${email}</p>
+                    <p><img class="icona" src="img/icona_telefono.png" alt="Icona Telefono">${telefono}</p>
+                </div>
             </c:if>
         </main>
         

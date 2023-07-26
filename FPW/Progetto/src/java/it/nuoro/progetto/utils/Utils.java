@@ -37,7 +37,7 @@ public class Utils {
     
     public static void checkTelephoneNumber(String param) throws InvalidParamException{
         // L'unico controllo per il numero di telefono è sulla lunghezza, considerando come minimo 7 cifre e massimo 15
-        if(param.length() < 7 || param.length() > 15)
+        if(param.length() < 7 || param.length() > 13)
             throw new InvalidParamException("Il numero di telefono è errato");
     }
     

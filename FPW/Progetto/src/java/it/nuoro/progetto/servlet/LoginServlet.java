@@ -14,12 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import it.nuoro.progetto.exceptions.*;
+import it.nuoro.progetto.model.Utenti;
+import it.nuoro.progetto.model.UtentiFactory;
 import it.nuoro.progetto.utils.*;
 
-/**
- *
- * @author mrobb
- */
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
 
@@ -31,19 +29,22 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         
-        try{
-            
+        try{ 
             Utils.checkString(username, 3, 20);
             Utils.checkString(password, 5, 20);
+             
+            Utenti utente = UtentiFactory.getInstance().getUtentebyUsernamePassword(username, password);
             
-            if(login(username, password)){
+            if(utente.getUsername() != null) {
                 session.setAttribute("username", username);
-                session.setMaxInactiveInterval(30);
+                session.setAttribute("email", utente.getEmail());
+                session.setAttribute("telefono", utente.getTelefono());
+                session.setMaxInactiveInterval(120);
                 response.sendRedirect("AreaPersonale"); 
-            }
-            else{
+            }else {
                 throw new InvalidParamException("Username o password non validi!");
             }
+          
         }catch(InvalidParamException e){
             session.invalidate();
             request.setAttribute("errorType", "login");
@@ -54,12 +55,13 @@ public class LoginServlet extends HttpServlet {
              
     }
 
+    /*
     private boolean login(String username, String password){
         return (username.equals("Pau") && password.equals("66103") ||
                 username.equals("Todde") && password.equals("66223") ||
-                username.equals("Pisanu") && password.equals("matricolaPisanu") ||
                 username.equals("Simbola") && password.equals("matricolaSimbola"));
     }
+    */
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

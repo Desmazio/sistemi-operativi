@@ -21,7 +21,6 @@
             <form method="POST" id="login" action="AnnuncioCreatoServlet">
                 <h2 class="login-title">Annuncio Creato</h2>
                 <p>Ora puoi tornare nel Marketplace</p>
-                <button type="submit" class="pulsante">MARKETPLACE</button>
 
                 <p id="messaggioErrore"></p>
             </form>

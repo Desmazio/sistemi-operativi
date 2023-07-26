@@ -25,14 +25,17 @@
             <c:choose>
                 <c:when test="${empty username}">
                     <form method="POST" id="login" action="LoginServlet"> <!-- action="LoginServlet" -->
-
                         <h2 class="login-title">Login</h2>
-                        <label for="username">Username</label>
-                        <input type="text" id="username" name="username" placeholder="Enter Username">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" placeholder="Enter Password">
+                        <div>
+                            <label for="username">Username</label><p class="contaCaratteri"></p><br>
+                            <input type="text" id="username" name="username" placeholder="Enter Username">
+                        </div>
+                        <div>
+                            <label for="password">Password</label><p class="contaCaratteri"></p><br>
+                            <input type="password" id="password" name="password" placeholder="Enter Password">
+                        </div>
+                        
                         <button type="button" id="pulsante" class="pulsante">ACCEDI</button>
-
                         <p id="messaggioErrore"></p>
                     </form>
                 </c:when>

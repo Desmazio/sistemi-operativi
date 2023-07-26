@@ -25,11 +25,11 @@
                 <c:redirect url="login.jsp"/>
             </c:if>
             
-            <form action="AnnuncioServlet" method="POST" id="creaAnnuncio">
+            <form action="AnnuncioServlet" method="POST" id="creaAnnuncio" enctype="multipart/form-data">
                 <h2 class="headerAnnuncio">Crea un annuncio</h2>
                 <div class="riga">
                     <div>
-                        <label for="titolo">Titolo</label><br>
+                        <label for="titolo">Titolo</label><p class="contaCaratteri"></p><br>
                         <input type="text" name="titolo" id="titolo" placeholder="Titolo dell'annuncio">
                     </div>
                     <div>
@@ -37,17 +37,18 @@
                         <input type="text" name="prezzo" id="prezzo">
                     </div>
                 </div>
-                    <label for="descrizione">Descrizione</label>
-                    <textarea rows="5" cols="20" name="descrizione" id="descrizione" placeholder="Descrizione dell'annuncio"></textarea>
-                <div class="riga">
+                <div>
+                    <label for="descrizione">Descrizione</label><p class="contaCaratteri"></p><br>
+                    <textarea rows="10" cols="60" name="descrizione" id="descrizione" placeholder="Descrizione dell'annuncio"></textarea>
+                </div>
+                <div>
                     <div>
                         <label for="tipologia">Tipologia</label><br>
                         <input type="radio" id="veicolo" name="tipologia" value="veicolo"><label for="veicolo">Veicolo</label><br>
                         <input type="radio" id="componente" name="tipologia" value="Componente"><label for="componente">Componente</label>
                     </div>
                     <div>
-                        <label for="telefono">Telefono</label><br>
-                        <input type="tel" name="telefono" id="telefono">
+                        <input type="file" name="immagine" id="immagine" accept="image/*" >
                     </div>
                 </div>
                 

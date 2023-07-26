@@ -26,14 +26,22 @@
                 <c:when test="${empty username}">
                     <form action="RegistrazioneServlet" method="POST" id="registrazione">
                         <h2 class="login-title">Registrati</h2>
-                        <label for="username">Username</label>
-                        <input type="text" id="username" name="username" placeholder="Enter Username">
-                        <label for="password">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Enter email">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" placeholder="Enter Password">
-                        <label for="password">Telefono</label>
-                        <input type="tel" id="telefono" name="telefono" placeholder="Enter telephone">
+                        <div>
+                            <label for="username">Username</label><p class="contaCaratteri"></p><br>
+                            <input type="text" id="username" name="username" placeholder="Enter Username">
+                        </div>
+                        <div>
+                            <label for="password">Email</label><p class="contaCaratteri"></p><br>
+                            <input type="email" id="email" name="email" placeholder="Enter email">
+                        </div>
+                        <div>
+                            <label for="password">Password</label><p class="contaCaratteri"></p><br>
+                            <input type="password" id="password" name="password" placeholder="Enter Password">
+                        </div>
+                        <div>
+                            <label for="password">Telefono</label><p class="contaCaratteri"></p><br>
+                            <input type="tel" id="telefono" name="telefono" placeholder="Enter telephone">
+                        </div>
                         <button type="button" id="pulsante" class="pulsante">REGISTRATI</button>
                         
                         <p id="messaggioErrore"></p>

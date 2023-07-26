@@ -8,8 +8,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 */
 
 .annuncio{
+    background: white;
     border-radius: 10px;
     margin-bottom: 10px;
+    box-shadow: 0px 0px 5px grey;
     margin-left: 0;
     text-align: left;
     position: relative;
@@ -37,7 +39,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .titoloAnnuncio{
     color: #3c4858;
     font-weight: 500;
-    
+    margin-bottom: 0;
+    margin-top: 0;
 }
 
 .prezzo{
@@ -80,6 +83,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
         margin-right: auto; 
         display: block;
         max-width: 600px;
+        width: auto;
     }
     
     .immagine{

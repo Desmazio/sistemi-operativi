@@ -28,5 +28,33 @@ window.onload = function(){
             form.submit();
     };
     
+    username.onkeyup = function(){
+        var contaText = document.getElementsByClassName('contaCaratteri')[0];
+        var min = 3;
+        var max = 20;
+        contaText.innerText = "/" + max;
+        contaText.innerText = this.value.length + contaText.innerText;
+        
+        if(this.value.length > max || this.value.length < min)
+            contaText.style.color = 'red';
+        else
+            contaText.style.color = '#3c4858';
+        
+    };
+    
+    password.onkeyup = function(){
+        var contaText = document.getElementsByClassName('contaCaratteri')[1];
+        var min = 5;
+        var max = 20;
+        contaText.innerText = "/" + max;
+        contaText.innerText = this.value.length + contaText.innerText;
+        
+        if(this.value.length > max || this.value.length < min)
+            contaText.style.color = 'red';
+        else
+            contaText.style.color = '#3c4858';
+        
+    };
+    
 };
 
